@@ -45,14 +45,26 @@
 
 
 
-let leftButton = document.querySelector(".l-button");
-let rightButton = document.querySelector(".r-button");
+let leftButton = document.querySelector("#left");
+let rightButton = document.querySelector("#right");
 let element = document.getElementsByClassName("box");
-let clientWidth = element[0].clientWidth;
-
+let viewWindow = document.querySelector(".view-window");
+let container = document.querySelector(".container");
+let wrapper = document.querySelector(".wrapper");
+let image = element[0].firstChild;
+let clientWidth = image.clientWidth;
+let clientHeight = image.clientHeight;
+let viewWidth = (clientWidth + 10) * 3;
+viewWindow.style.width = viewWidth + "px";
+wrapper.style.width = viewWidth + 91 + "px";
+container.style.height = clientHeight + "px";
+container.style.width = (clientWidth + 10) * element.length + "px";
+container.style.marginLeft = -(clientWidth + 10) * 2 + "px";
 
 
 for (let i = 0; i < element.length; i++) {
+    element[i].style.width = clientWidth + "px";
+
     element[i].style.transform = "translateX(" + i*(clientWidth + 10) + "px)";
     let image = element[i].firstChild;
     if (i !== 3){
@@ -67,7 +79,6 @@ leftButton.addEventListener('click', function () {
     for (let i = element.length - 1; i >= 0 ; i--) {
         let currentStyle = element[i].style;
         scaled(i, currentStyle, 2);
-        console.log(currentStyle.transform);
         if (currentStyle.transform === "translateX(" + (element.length - 1)*(clientWidth + 10) + "px)") {
             element[i].style.transform = "";
             element[i].style.display = "none";
