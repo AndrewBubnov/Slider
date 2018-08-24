@@ -104,7 +104,8 @@ let container = document.querySelector(".container");
 let wrapper = document.querySelector(".wrapper");
 let bigPhoto = document.querySelector(".big-photo");
 let innerWrapper = document.querySelector(".inner-wrapper");
-let image = element[0].firstChild;
+let circle = element[0].firstChild;
+let image = circle.firstChild;
 let clientWidth = image.clientWidth;
 let clientHeight = image.clientHeight;
 let viewWidth = (clientWidth + 10) * 3;
@@ -121,10 +122,11 @@ for (let i = 0; i < element.length; i++) {
     element[i].style.width = clientWidth + "px";
     array[i] = i;
     element[i].style.transform = "translateX(" + i*(clientWidth + 10) + "px)";
-    let image = element[i].firstChild;
+    let circle = element[i].firstChild;
+
     if (i !== 3){
-        image.classList.add("common-scaled");
-    } else image.classList.add("centered-scaled");
+        circle.classList.add("common-scaled");
+    } else circle.classList.add("centered-scaled");
 }
 
 leftButton.addEventListener('click', function () {
