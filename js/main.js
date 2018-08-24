@@ -120,9 +120,9 @@ container.style.marginLeft = -(clientWidth + 10) * 2 + "px";
 bigPhoto.style.width = clientWidth + "px";
 bigPhoto.style.height = clientHeight + "px";
 
-let employee = [["Daria Algernon", "Designer"], ["Cleo Dean", "Photographer"], ["Ike Giffard", "Web designer"],
-    ["Anderson Kiera", "Photographer"], ["Mansel Greyson", "Developer"], ["Pam Kaylynn", "Project manager"],
-    ["Jayson Kev", "Team leader"]];
+let employee = [["Daria Algernon", "designer"], ["Cleo Dean", "photographer"], ["Ike Giffard", "web-designer"],
+    ["Anderson Kiera", "photographer"], ["Mansel Greyson", "developer"], ["Pam Kaylynn", "project manager"],
+    ["Jayson Kev", "team leader"]];
 
 
 for (let i = 0; i < element.length; i++) {
