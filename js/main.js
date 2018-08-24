@@ -206,7 +206,6 @@ for (let i = 0; i < element.length; i++) {
 
         if (shown === true){
             let currentPhoto = parseInt(bigPhoto.innerHTML.match(/\d/g).join(""));
-            let photo = bigPhoto.firstChild;
 
             if (currentPhoto !== i + 1){
                 show(i);
