@@ -62,6 +62,7 @@ body{
 }
 .common-scaled{
     transform: scale(.4);
+    transition: transform .3s ease-out .2s;
 }
 .centered-scaled{
     transform: scale(.6);

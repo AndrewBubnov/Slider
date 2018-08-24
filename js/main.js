@@ -193,13 +193,39 @@ for (let i = 0; i < element.length; i++) {
             shown = false;
         }
 
+        let image = element[i].firstChild;
+        image.classList.remove("centered-scaled");
+        image.classList.add("common-scaled");
+
         if (shown === true){
-            bigPhoto.innerHTML = "<div class='green-circle minify'><img class='clip-circle ' src = 'img/photo-" + (i + 1) + ".jpg'></div>";
-            shown = false;
+            let currentPhoto = parseInt(bigPhoto.innerHTML.match(/\d/g).join(""));
+            let photo = bigPhoto.firstChild;
+
+            if (currentPhoto !== i + 1){
+                bigPhoto.innerHTML = "<div class='green-circle enlarge'><img class='clip-circle ' src = 'img/photo-" + (i + 1) + ".jpg'></div>";
+                shown = true;
+            } else {
+                minify();
+            }
         }
         else {
             bigPhoto.innerHTML = "<div class='green-circle enlarge'><img class='clip-circle ' src = 'img/photo-" + (i + 1) + ".jpg'></div>";
             shown = true;
         }
     });
+}
+
+bigPhoto.addEventListener("click", function () {
+        minify();
+});
+
+function minify() {
+    if (bigPhoto.innerHTML !== ""){
+        setTimeout(function () {
+            bigPhoto.innerHTML = "";
+        }, 300);
+        let photo = bigPhoto.firstChild;
+        photo.classList.add("minify");
+        shown = false;
+    }
 }
