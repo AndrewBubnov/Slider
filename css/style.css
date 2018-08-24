@@ -4,13 +4,23 @@ body{
     align-items: center;
 }
 .wrapper{
-    height: 370px;
+    height: 470px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-
 }
+.employee {
+    width: 50%;
+    height: 30px;
+    color: rgba(0, 128, 0, .6);
+    font-size: 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .inner-wrapper{
     width: 100%;
     display: flex;

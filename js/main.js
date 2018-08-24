@@ -104,6 +104,8 @@ let container = document.querySelector(".container");
 let wrapper = document.querySelector(".wrapper");
 let bigPhoto = document.querySelector(".big-photo");
 let innerWrapper = document.querySelector(".inner-wrapper");
+let employeeName = document.querySelector("#employee-name");
+let employeeRole = document.querySelector("#employee-role");
 let circle = element[0].firstChild;
 let image = circle.firstChild;
 let clientWidth = image.clientWidth;
@@ -117,6 +119,11 @@ container.style.width = (clientWidth + 10) * element.length + "px";
 container.style.marginLeft = -(clientWidth + 10) * 2 + "px";
 bigPhoto.style.width = clientWidth + "px";
 bigPhoto.style.height = clientHeight + "px";
+
+let employee = [["Daria Algernon", "Designer"], ["Cleo Dean", "Photographer"], ["Ike Giffard", "Web designer"],
+    ["Anderson Kiera", "Photographer"], ["Mansel Greyson", "Developer"], ["Pam Kaylynn", "Project manager"],
+    ["Jayson Kev", "Team leader"]];
+
 
 for (let i = 0; i < element.length; i++) {
     element[i].style.width = clientWidth + "px";
@@ -202,15 +209,13 @@ for (let i = 0; i < element.length; i++) {
             let photo = bigPhoto.firstChild;
 
             if (currentPhoto !== i + 1){
-                bigPhoto.innerHTML = "<div class='green-circle enlarge'><img class='clip-circle ' src = 'img/photo-" + (i + 1) + ".jpg'></div>";
-                shown = true;
+                show(i);
             } else {
                 minify();
             }
         }
         else {
-            bigPhoto.innerHTML = "<div class='green-circle enlarge'><img class='clip-circle ' src = 'img/photo-" + (i + 1) + ".jpg'></div>";
-            shown = true;
+            show(i);
         }
     });
 }
@@ -223,9 +228,18 @@ function minify() {
     if (bigPhoto.innerHTML !== ""){
         setTimeout(function () {
             bigPhoto.innerHTML = "";
+            employeeName.innerHTML = "";
+            employeeRole.innerHTML = "";
         }, 300);
         let photo = bigPhoto.firstChild;
         photo.classList.add("minify");
         shown = false;
     }
+}
+
+function show(i) {
+    bigPhoto.innerHTML = "<div class='green-circle enlarge'><img class='clip-circle ' src = 'img/photo-" + (i + 1) + ".jpg'></div>";
+    employeeName.innerHTML = employee[i][0];
+    employeeRole.innerHTML = employee[i][1];
+    shown = true;
 }
